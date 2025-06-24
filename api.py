@@ -7,6 +7,7 @@ from sklearn.metrics import classification_report, roc_auc_score
 from sklearn.preprocessing import StandardScaler
 from sklearn.impute import SimpleImputer
 import matplotlib.pyplot as plt
+from fastapi import FastAPI
 
 def generate_sample_tracking_data(num_players=10, num_games=5, fps=10, duration_min=60):
     np.random.seed(42)
@@ -95,47 +96,35 @@ def analyze_player(player_data, model, scaler, imputer):
         player_data['injury_prob'] = model.predict_proba(
             scaler.transform(imputer.transform(features_clean)))[:, 1]
         
-        fig, ax = plt.subplots(figsize=(12, 5))
-        time_labels = player_data['time'].dt.strftime('%H:%M')
-        
-        ax.plot(player_data['time'], player_data['injury_prob'], 'o-', color='#e63946', markersize=4)
-        ax.set_ylim(0, 1)
-        ax.set_yticks(np.arange(0, 1.1, 0.2))
-        ax.set_ylabel('Probabilidade de Lesão', fontsize=10)
-        ax.set_xticks(player_data['time'][::len(player_data)//10])
-        ax.set_xticklabels(time_labels[::len(player_data)//10], rotation=45)
-        
         mean_risk = player_data['injury_prob'].mean()
-        ax.axhline(mean_risk, color='#1d3557', linestyle='--', label=f'Média: {mean_risk:.1%}')
-        plt.title(f'Risco de Lesão - {player_data["player"].iloc[0]}', fontsize=12)
-        plt.legend()
-        plt.tight_layout()
-        plt.show()
+
+        return {"player_time": player_data['time'], "injury_prob": player_data['injury_prob'], "mean_risk": mean_risk}
         
     except Exception as e:
         print(f"Erro ao analisar jogador: {str(e)}")
 
-def main():
-    print("Gerando dados simulados...")
-    tracking_data = generate_sample_tracking_data(num_players=20, num_games=3)
-    injury_data = generate_sample_injury_data(tracking_data)
-    
-    print("\nCalculando métricas de movimento...")
-    tracking_metrics = calculate_movement_metrics(tracking_data)
-    agg_stats = aggregate_player_stats(tracking_metrics)
-    model_data = prepare_model_data(agg_stats, injury_data)
-    
-    print("\nTreinando modelo...")
-    features = model_data[['speed_mean', 'acceleration_max', 'direction_change_sum']]
-    target = model_data['future_injury']
-    model, scaler, imputer = train_injury_model(features, target)
-    
+pd.set_option('display.max_columns', 500)
+plt.style.use('ggplot')
+
+print("Gerando dados simulados...")
+tracking_data = generate_sample_tracking_data(num_players=20, num_games=3)
+injury_data = generate_sample_injury_data(tracking_data)
+
+print("\nCalculando métricas de movimento...")
+tracking_metrics = calculate_movement_metrics(tracking_data)
+agg_stats = aggregate_player_stats(tracking_metrics)
+model_data = prepare_model_data(agg_stats, injury_data)
+
+print("\nTreinando modelo...")
+features = model_data[['speed_mean', 'acceleration_max', 'direction_change_sum']]
+target = model_data['future_injury']
+model, scaler, imputer = train_injury_model(features, target)
+
+app = FastAPI()
+
+@app.get("/analize")
+async def root():
     print("\nAnalisando jogadores...")
     for player in model_data['player'].unique()[:3]:
         player_data = model_data[model_data['player'] == player]
-        analyze_player(player_data, model, scaler, imputer)
-
-if __name__ == "__main__":
-    pd.set_option('display.max_columns', 500)
-    plt.style.use('ggplot')
-    main()
+        return analyze_player(player_data, model, scaler, imputer)
