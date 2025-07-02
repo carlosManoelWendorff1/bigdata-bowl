@@ -1,12 +1,12 @@
-# 🏈 NFL Big Data Bowl - Análise de Dados com Algoritmos Avançados
+# NFL Big Data Bowl - Análise de Dados com Algoritmos Avançados
 
 Projeto desenvolvido como parte da disciplina de **Algoritmos Avançados** no curso de **Engenharia de Software**. O objetivo é aplicar conceitos avançados de algoritmos e estruturas de dados para realizar análises exploratórias e preditivas sobre os dados disponibilizados pela competição [NFL Big Data Bowl](https://www.kaggle.com/competitions/nfl-big-data-bowl-2024/overview).
 
-## 📌 Objetivo
+## Objetivo
 
 O propósito deste projeto é analisar os dados de tracking de jogadores durante jogadas da NFL para extrair informações relevantes, identificar padrões e propor insights que possam contribuir com a compreensão do jogo e o desenvolvimento de modelos preditivos.
 
-## 🧠 O que este projeto faz?
+## O que este projeto faz?
 
 * Carrega e organiza os datasets fornecidos pela NFL (jogadas, jogadores, tracking, etc.).
 * Realiza análise exploratória dos dados (visualizações, estatísticas descritivas).
@@ -14,7 +14,7 @@ O propósito deste projeto é analisar os dados de tracking de jogadores durante
 * (Opcional) Implementa modelos de aprendizado de máquina simples para previsão de jogadas ou métricas como Yards Gained.
 * Gera relatórios ou gráficos explicativos com base nos dados processados.
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 nfl-big-data-bowl/
@@ -58,14 +58,14 @@ Você pode baixar os dados da competição diretamente do [Kaggle](https://www.k
 python main.py
 ```
 
-## 🧪 Tecnologias e Ferramentas
+## Tecnologias e Ferramentas
 
 * Python 3.10+
 * Pandas / NumPy
 * Matplotlib / Seaborn / Plotly
 * Scikit-learn (opcional para modelagem)
 
-## 🧠 Conceitos Aplicados
+## Conceitos Aplicados
 
 * Análise exploratória de dados (EDA)
 * Algoritmos eficientes para filtragem, agregação e análise
