@@ -50,7 +50,7 @@ pip install -r requirements.txt
 
 ### 4. Baixe os datasets
 
-Você pode baixar os dados da competição diretamente do [Kaggle](https://www.kaggle.com/competitions/nfl-big-data-bowl-2024/data) e colocar os arquivos `.csv` na pasta `data/`.
+Você pode baixar os dados da competição diretamente do [Kaggle](https://www.kaggle.com/competitions/nfl-big-data-bowl-2024/data) e colocar os arquivos `.csv` na pasta `input/`.
 
 ### 5. Execute a análise
 
