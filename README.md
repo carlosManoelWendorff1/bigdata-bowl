@@ -2,13 +2,9 @@
 
 Projeto desenvolvido como parte da disciplina de **Algoritmos Avançados** no curso de **Engenharia de Software**. O objetivo é aplicar conceitos avançados de algoritmos e estruturas de dados para realizar análises exploratórias e preditivas sobre os dados disponibilizados pela competição [NFL Big Data Bowl](https://www.kaggle.com/competitions/nfl-big-data-bowl-2024/overview).
 
----
-
 ## 📌 Objetivo
 
 O propósito deste projeto é analisar os dados de tracking de jogadores durante jogadas da NFL para extrair informações relevantes, identificar padrões e propor insights que possam contribuir com a compreensão do jogo e o desenvolvimento de modelos preditivos.
-
----
 
 ## 🧠 O que este projeto faz?
 
@@ -17,8 +13,6 @@ O propósito deste projeto é analisar os dados de tracking de jogadores durante
 * Aplica algoritmos e estruturas de dados eficientes para tratar grandes volumes de informação.
 * (Opcional) Implementa modelos de aprendizado de máquina simples para previsão de jogadas ou métricas como Yards Gained.
 * Gera relatórios ou gráficos explicativos com base nos dados processados.
-
----
 
 ## 📁 Estrutura do Projeto
 
@@ -30,8 +24,6 @@ nfl-big-data-bowl/
 ├── README.md              # Este arquivo
 └── main.py                # Script principal de execução
 ```
-
----
 
 ## ⚙️ Como Rodar o Projeto
 
@@ -66,16 +58,12 @@ Você pode baixar os dados da competição diretamente do [Kaggle](https://www.k
 python main.py
 ```
 
----
-
 ## 🧪 Tecnologias e Ferramentas
 
 * Python 3.10+
 * Pandas / NumPy
 * Matplotlib / Seaborn / Plotly
 * Scikit-learn (opcional para modelagem)
-
----
 
 ## 🧠 Conceitos Aplicados
 
@@ -84,8 +72,6 @@ python main.py
 * (Opcional) Regressão linear, KNN, Decision Trees
 * Manipulação eficiente de dados tabulares
 * Visualização de movimentação espacial (jogadores no campo)
-
----
 
 ## ✍️ Autores
 
