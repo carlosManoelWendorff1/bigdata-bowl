@@ -2,6 +2,10 @@
 
 Projeto desenvolvido como parte da disciplina de **Algoritmos Avançados** no curso de **Engenharia de Software**. O objetivo é aplicar conceitos avançados de algoritmos e estruturas de dados para realizar análises exploratórias e preditivas sobre os dados disponibilizados pela competição [NFL Big Data Bowl](https://www.kaggle.com/competitions/nfl-big-data-bowl-2024/overview).
 
+![Image 1](./assets/image1.png)
+
+![Image 2](./assets/image3.png)
+
 ## Objetivo
 
 O propósito deste projeto é analisar os dados de tracking de jogadores durante jogadas da NFL para extrair informações relevantes, identificar padrões e propor insights que possam contribuir com a compreensão do jogo e o desenvolvimento de modelos preditivos.
