@@ -73,7 +73,7 @@ python main.py
 * Manipulação eficiente de dados tabulares
 * Visualização de movimentação espacial (jogadores no campo)
 
-## ✍️ Autores
+## Autores
 
 * Gabriel Eduardo da Silva Rosa;
 * Jefferson Salomon;
